@@ -1,6 +1,8 @@
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max))
 }
+
+//Following is inspired by https://dev.to/bjhaid_93/beginners-guide-to-fetching-data-with-ajax-fetch-api--asyncawait-3m1l
 //Create the XHR Object
 let xhr = new XMLHttpRequest()
 let xhrDogs = new XMLHttpRequest()
