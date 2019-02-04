@@ -16,12 +16,9 @@ xhr.onload = function() {
     //return server response as an object with JSON.parse
     console.log(JSON.parse(this.responseText))
     quotes = JSON.parse(this.responseText)
+    randNum = getRandomInt(quotes.messages.non_personalized.length)
     document.getElementById('quote').innerHTML =
-      '"' +
-      quotes.messages.non_personalized[
-        getRandomInt(quotes.messages.non_personalized.length)
-      ] +
-      '"'
+      '"' + quotes.messages.non_personalized[randNum] + '"'
   }
 }
 xhrDogs.onload = function() {
@@ -36,12 +33,9 @@ xhrDogs.onload = function() {
 }
 
 function next() {
+  randNum = getRandomInt(quotes.messages.non_personalized.length)
   document.getElementById('quote').innerHTML =
-    '"' +
-    quotes.messages.non_personalized[
-      getRandomInt(quotes.messages.non_personalized.length)
-    ] +
-    '"'
+    '"' + quotes.messages.non_personalized[randNum] + '"'
   document.getElementById('image').src =
     dogImage.message[getRandomInt(dogImage.message.length)]
 }
