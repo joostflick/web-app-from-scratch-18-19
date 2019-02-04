@@ -12,7 +12,7 @@ Doel: Data ophalen uit een API en renderen in een overzichtspagina.
 
 ## Wat doet deze app
 
-Combineert een Trump quote met een afbeelding van een hond.
+Combineert een Trump quote met een afbeelding van een hond. Text to speech om de quote te horen!
 
 ## Welke actoren zitten er in deze applicatie
 
