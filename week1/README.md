@@ -8,13 +8,25 @@ Doel: Data ophalen uit een API en renderen in een overzichtspagina.
 
 ## Link to live demo
 
+[Demo](https://joostflick.github.io/web-app-from-scratch-18-19/week1/)
+
 ## Wat doet deze app
+
+Combineert een Trump quote met een afbeelding van een hond.
 
 ## Welke actoren zitten er in deze applicatie
 
-## De API
+## De API's
+
+Trump quotes:
+https://api.whatdoestrumpthink.com/api/v1/quotes
+
+50 random dog images:
+https://dog.ceo/api/breeds/image/random/50
 
 ## Interactie
+
+Knop om een nieuwe quote + hondenfoto aan te vragen
 
 ## Design patterns en best practices
 
