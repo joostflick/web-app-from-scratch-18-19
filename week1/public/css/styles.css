@@ -3,14 +3,26 @@ button {
   margin-top: 2em;
 }
 
+h2 {
+  padding-left: 3em;
+  padding-right: 3em;
+  text-align: center;
+  color: white;
+}
+
 body {
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
+  background-color: black;
 }
 
 img {
-  max-height: 500px;
+  max-width: 50%;
+  max-height: 60%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px white;
 }
