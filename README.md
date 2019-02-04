@@ -1,24 +1,19 @@
 # Web App From Scratch @cmda-minor-web 18-19
 
-In dit vak gaan we een web app maken zonder frameworks of onnodige libraries, dus zoveel mogelijk met native HTML, CSS & JavaScript. Het eindproduct is een modulair opgezet prototype voor een single page web app. Data wordt opgehaald uit een externe API, waar nodig gemanipuleerd en vervolgens getoond in de Web App. Je leert hoe je structuur aanbrengt in je code en hoe je hiermee 'from scratch' een (prototype voor een) web app maakt. Met deze kennis begrijp je daarnaast beter hoe bestaande api’s, libraries en frameworks werken.
-
 ## Leerdoelen
-- _Je kan structuur aanbrengen in je code door patterns toe te passen. Je kan de keuze voor de gekozen patterns beargumenteren_
-- _Je kan data ophalen, manipuleren en dynamisch omzetten naar html elementen mbv templating._
-- _Je begrijpt hoe je middels asynchrone code met een externe API kan werken._
-- _Je begrijpt hoe je states in je applicaties kan managen en stelt de gebruiker op de hoogte van states waar nodig._
+
+- _Ik kan structuur aanbrengen in mijn code door patterns toe te passen. Ik kan de keuze voor de gekozen patterns beargumenteren_
+- _Ik kan data ophalen, manipuleren en dynamisch omzetten naar html elementen mbv templating._
+- _Ik begrijp hoe je middels asynchrone code met een externe API kan werken._
+- _Ik begrijp hoe je states in mijn applicaties kan managen en stel de gebruiker op de hoogte van states waar nodig._
 
 [Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vTjZGWGPC_RMvTMry8YW5XOM79GEIdgS7I5JlOe6OeeOUdmv7ok1s9jQhzojNE4AsyzgL-jJCbRj1LN/pubhtml?gid=0&single=true)
-
-## Lesprogramma
 
 ### Week 1 - Hello API 🐒
 
 Doel: Data ophalen uit een API en renderen in een overzichtspagina.
 
-[Opdrachten](https://drive.google.com/open?id=1OVhWQNaCgSluYviTKKWcApkyPd23xow1PiExb8GYANM)
-
-[Slides](https://drive.google.com/open?id=1Rjl9xqXoKniQSRJPdkU1O5YwWC33SJK8KiV0a-H_xZU)
+[Applicatie week 1](https://joostflick.github.io/web-app-from-scratch-18-19/week1/)
 
 ### Week 2 - Design and Refactor 🛠
 
@@ -35,7 +30,6 @@ Doel: Data manipuleren. Code splitsen in modules. Reflecteren op eindresultaat.
 [Opdrachten](https://drive.google.com/open?id=13pKQu72pshaEzKw9q5JHLa-aop85nMP6nDCdqioWjoQ)
 
 [Slides](https://drive.google.com/open?id=1BSzGYNLMgtHD4HRnK7f0DgyTv4Pg3xsQwD_eYNo7v0Y)
-
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
