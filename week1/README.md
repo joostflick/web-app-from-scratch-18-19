@@ -12,7 +12,7 @@ Doel: Data ophalen uit een API en renderen in een overzichtspagina.
 
 ## Wat doet deze app
 
-Combineert een Trump quote met een afbeelding van een hond. Text to speech om de quote te horen!
+De app combineert een willekeurige Trump quote met een willekeurige foto van een hond. Ook kan er naar een lijst van honderden mogelijke beledigingen gekeken worden.
 
 ## Welke actoren zitten er in deze applicatie
 
@@ -21,13 +21,19 @@ Combineert een Trump quote met een afbeelding van een hond. Text to speech om de
 Trump quotes:
 https://api.whatdoestrumpthink.com/api/v1/quotes
 
-50 random dog images:
-https://dog.ceo/api/breeds/image/random/50
+Random dog images:
+https://dog.ceo/api/breeds/image/random/
+
+Random users:
+https://randomuser.me/api/
 
 ## Interactie
 
-Knop om een nieuwe quote + hondenfoto aan te vragen
+Knop om een nieuwe quote + hondenfoto aan te vragen, knop voor text to speech bij de quotes.
+De gebruiker kan heen en weer navigeren tussen de lijst weergave en de quote generator.
 
 ## Design patterns en best practices
 
 ## Wishlist
+
+- templating engine
