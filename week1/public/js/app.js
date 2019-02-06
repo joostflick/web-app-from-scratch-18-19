@@ -42,7 +42,3 @@ function next() {
 //call send
 xhr.send()
 xhrDogs.send()
-//Common Types of HTTP Statuses
-// 200: OK
-// 404: ERROR
-// 403: FORBIDDEN

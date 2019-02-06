@@ -4,7 +4,11 @@ button {
   margin-bottom: 2em;
 }
 
-h2 {
+h2,
+h1,
+p,
+a,
+table {
   padding-left: 3em;
   padding-right: 3em;
   text-align: center;
