@@ -1,6 +1,7 @@
 var link = 'https://api.whatdoestrumpthink.com/api/v1/quotes'
 var linkNames = 'https://randomuser.me/api/?results=573'
 
+//promises example by Joost Faber https://codepen.io/joostf/pen/OQxpxx
 var loadInsults = new Promise(function(resolve, reject) {
   var request = new XMLHttpRequest()
   request.open('GET', link, true)
