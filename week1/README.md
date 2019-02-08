@@ -23,6 +23,8 @@ https://dog.ceo/api/breeds/image/random/
 Random users:
 https://randomuser.me/api/
 
+Voor de eerste pagina (quote + afbeelding) heb ik synchrone get requests gedaan voor de afbeelding en de quote. Voor de lijstweergave heb ik het wat schaalbaarder gemaakt door verschillende requests met Promises op te lossen.
+
 ## Interactie
 
 Knop om een nieuwe quote + hondenfoto aan te vragen, knop voor text to speech bij de quotes.
