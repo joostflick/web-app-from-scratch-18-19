@@ -17,8 +17,12 @@ De app combineert een willekeurige Trump quote met een willekeurige foto van een
 Trump quotes:
 https://api.whatdoestrumpthink.com/api/v1/quotes
 
+Beperkingen: Weinig data, alleen algemene quotes / gepersonaliseerde quotes
+
 Random dog images:
 https://dog.ceo/api/breeds/image/random/
+
+Beperkingen: Maximaal 50 random afbeeldingen opvragen
 
 Random users:
 https://randomuser.me/api/
