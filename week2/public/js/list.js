@@ -1,9 +1,7 @@
-const link = 'https://api.whatdoestrumpthink.com/api/v1/quotes'
-const linkNames = 'https://randomuser.me/api/?results=573'
-
 //promises example by Joost Faber https://codepen.io/joostf/pen/OQxpxx
 const loadInsults = new Promise(function(resolve, reject) {
   const request = new XMLHttpRequest()
+  const link = 'https://api.whatdoestrumpthink.com/api/v1/quotes'
   request.open('GET', link, true)
 
   request.onload = () => {
@@ -26,6 +24,7 @@ const loadInsults = new Promise(function(resolve, reject) {
 
 const loadNames = new Promise(function(resolve, reject) {
   const request = new XMLHttpRequest()
+  const linkNames = 'https://randomuser.me/api/?results=573'
   request.open('GET', linkNames, true)
 
   request.onload = () => {
