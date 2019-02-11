@@ -6,6 +6,13 @@
 
 [Demo](https://joostflick.github.io/web-app-from-scratch-18-19/week1/)
 
+## Code conventions
+
+- No vars
+- No global scope
+- Using arrow functions for simpler functions to learn how to write those
+- Using ternary operator instead of if statement for simpler if statements to learn how to write those
+
 ## Wat doet deze app
 
 De app combineert een willekeurige Trump quote met een willekeurige foto van een hond. Ook kan er naar een lijst van honderden mogelijke beledigingen gekeken worden. Daarbij worden willekeurige namen gecombineerd met willekeurige beledigingen voor die persoon.
