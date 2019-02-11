@@ -1,6 +1,4 @@
-# Week 1 - Hello API 🐒
-
-Doel: Data ophalen uit een API en renderen in een overzichtspagina.
+# Week 2
 
 ![screenshot](./screenshot.png)
 
