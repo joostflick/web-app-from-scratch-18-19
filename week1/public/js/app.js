@@ -17,8 +17,9 @@ xhr.onload = function() {
     console.log(JSON.parse(this.responseText))
     quotes = JSON.parse(this.responseText)
     randNum = getRandomInt(quotes.messages.non_personalized.length)
-    document.getElementById('quote').innerHTML =
-      '"' + quotes.messages.non_personalized[randNum] + '"'
+    document.getElementById('quote').innerHTML = `"${
+      quotes.messages.non_personalized[randNum]
+    }"`
   }
 }
 xhrDogs.onload = function() {
@@ -42,3 +43,7 @@ function next() {
 //call send
 xhr.send()
 xhrDogs.send()
+
+document.getElementById('image').addEventListener('click', function() {
+  responsiveVoice.speak(quotes.messages.non_personalized[randNum])
+})
