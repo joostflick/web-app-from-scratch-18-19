@@ -43,7 +43,3 @@ function next() {
 //call send
 xhr.send()
 xhrDogs.send()
-
-document.getElementById('image').addEventListener('click', function() {
-  responsiveVoice.speak(quotes.messages.non_personalized[randNum])
-})
