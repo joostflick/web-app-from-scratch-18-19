@@ -1,9 +1,9 @@
-var link = 'https://api.whatdoestrumpthink.com/api/v1/quotes'
-var linkNames = 'https://randomuser.me/api/?results=573'
+const link = 'https://api.whatdoestrumpthink.com/api/v1/quotes'
+const linkNames = 'https://randomuser.me/api/?results=573'
 
 //promises example by Joost Faber https://codepen.io/joostf/pen/OQxpxx
-var loadInsults = new Promise(function(resolve, reject) {
-  var request = new XMLHttpRequest()
+const loadInsults = new Promise(function(resolve, reject) {
+  const request = new XMLHttpRequest()
   request.open('GET', link, true)
 
   request.onload = () => {
@@ -24,15 +24,15 @@ var loadInsults = new Promise(function(resolve, reject) {
   request.send()
 })
 
-var loadNames = new Promise(function(resolve, reject) {
-  var request = new XMLHttpRequest()
+const loadNames = new Promise(function(resolve, reject) {
+  const request = new XMLHttpRequest()
   request.open('GET', linkNames, true)
 
   request.onload = () => {
     if (request.status >= 200 && request.status < 400) {
       // Success!
       const data = JSON.parse(request.responseText)
-      var randomNames = []
+      const randomNames = []
       data.results.forEach(element => {
         randomNames.push(element.name.first)
       })
@@ -55,8 +55,8 @@ Promise.all([loadNames, loadInsults]).then(function(values) {
 })
 
 function createTable(values) {
-  var names = values[0]
-  var insults = values[1]
+  const names = values[0]
+  const insults = values[1]
   console.log(names)
   console.log(values)
 
@@ -64,21 +64,21 @@ function createTable(values) {
     'Insulting ' + insults.length + ' people Donald Trump style'
 
   // get the reference for the body
-  var body = document.getElementsByTagName('body')[0]
+  const body = document.getElementsByTagName('body')[0]
 
   // creates a <table> element and a <tbody> element
-  var tbl = document.createElement('table')
-  var tblBody = document.createElement('tbody')
+  const tbl = document.createElement('table')
+  const tblBody = document.createElement('tbody')
   // creating all cells
-  for (var i = 0; i < insults.length; i++) {
+  for (let i = 0; i < insults.length; i++) {
     // creates a table row
-    var row = document.createElement('tr')
+    const row = document.createElement('tr')
 
     // Create a <td> element and a text node, make the text
     // node the contents of the <td>, and put the <td> at
     // the end of the table row
-    var cell = document.createElement('td')
-    var cellText = document.createTextNode(
+    const cell = document.createElement('td')
+    const cellText = document.createTextNode(
       names[i].charAt(0).toUpperCase() + names[i].slice(1) + ' ' + insults[i]
     )
     cell.appendChild(cellText)

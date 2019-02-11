@@ -4,8 +4,8 @@ function getRandomInt(max) {
 
 //Following is inspired by https://dev.to/bjhaid_93/beginners-guide-to-fetching-data-with-ajax-fetch-api--asyncawait-3m1l
 //Create the XHR Object
-let xhr = new XMLHttpRequest()
-let xhrDogs = new XMLHttpRequest()
+const xhr = new XMLHttpRequest()
+const xhrDogs = new XMLHttpRequest()
 //Call the open function, GET-type of request, url, true-asynchronous
 xhr.open('GET', 'https://api.whatdoestrumpthink.com/api/v1/quotes', true)
 xhrDogs.open('GET', 'https://dog.ceo/api/breeds/image/random/50', true)
