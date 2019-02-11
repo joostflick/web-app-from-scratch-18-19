@@ -40,10 +40,18 @@ function getRandomInt(max) {
   xhrDogs.send()
 })()
 
-function next() {
-  randNum = getRandomInt(quotes.messages.non_personalized.length)
-  document.getElementById('quote').innerHTML =
-    '"' + quotes.messages.non_personalized[randNum] + '"'
-  document.getElementById('image').src =
-    dogImage.message[getRandomInt(dogImage.message.length)]
-}
+document
+  .getElementById('buttonNext')
+  .addEventListener('click', function next() {
+    randNum = getRandomInt(quotes.messages.non_personalized.length)
+    document.getElementById('quote').innerHTML =
+      '"' + quotes.messages.non_personalized[randNum] + '"'
+    document.getElementById('image').src =
+      dogImage.message[getRandomInt(dogImage.message.length)]
+  })
+
+document
+  .getElementById('speechButton')
+  .addEventListener('click', function playSound() {
+    responsiveVoice.speak(quotes.messages.non_personalized[randNum])
+  })
