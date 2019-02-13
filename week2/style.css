@@ -4,17 +4,32 @@ button {
   margin-bottom: 2em;
 }
 
+body {
+  text-align: center;
+}
+
 h2,
 h1,
 p,
 a {
-  padding-left: 3em;
-  padding-right: 3em;
-  text-align: center;
   color: white;
 }
+
+a {
+  margin-bottom: 2em;
+}
+
+.map {
+  display: inline-flex;
+  width: 100%;
+  height: 500px;
+  background-color: red;
+}
+
 .name {
   border: 2px solid purple;
+  margin-bottom: 1em;
+  padding: 1em;
 }
 .user {
   margin: 0 auto;
@@ -29,15 +44,11 @@ a {
 
 body {
   font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   background-color: black;
 }
 
-img {
+.profilepic {
   border-radius: 8px;
   box-shadow: 0 0 10px white;
 }

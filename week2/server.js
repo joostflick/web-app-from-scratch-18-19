@@ -89,20 +89,31 @@ Promise.all([loadNames, loadInsults]).then(function(values) {
     drawDetailPage(values[0][id])
   })
 })
-
+//Martijn was a huge inspiration for me here
 function drawDetailPage(user) {
   const element = document.getElementById('list')
   element.innerHTML = `<div class="user">
    <a href="#insultlist">Back to list</a>
-        <img src=${user.picture.large}></img>
+        <img class="profilepic" src=${user.picture.large}></img>
       <p>${user.name} ${user.lastName}</p>
       <p>${user.insult}</p>
-      <p>${user.cellphone}</p>
+      <p>Phone number: ${user.cellphone}</p>
+      <p>Directly insult this user via email: </p>
       <a href="mailto:${user.email}?subject=${user.name} ${user.insult}">${
     user.email
-  }</p>
+  }</a>
       </div>
       `
+  drawMap(user.location.coordinates)
+}
+
+function drawMap(location) {
+  console.log(location)
+  map = document.getElementById('list')
+  map.innerHTML += `
+<div class="map" id="map"></div>
+`
+  initMap(location)
 }
 
 function drawDom(data) {
@@ -113,7 +124,9 @@ function drawDom(data) {
     names[i].insult = insults[i]
     names[i].id = i
   }
-  element.innerHTML = `${names
+  element.innerHTML = `
+  <a href="./index.html">Give me some other insults!</a>
+  ${names
     .map(item =>
       `
   <div class="name">
