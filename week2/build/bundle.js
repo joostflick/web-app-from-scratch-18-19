@@ -1,3 +1,4 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 //promises example by Joost Faber https://codepen.io/joostf/pen/OQxpxx
 const loadInsults = new Promise(function(resolve, reject) {
   const request = new XMLHttpRequest()
@@ -10,7 +11,7 @@ const loadInsults = new Promise(function(resolve, reject) {
       const data = JSON.parse(request.responseText)
       resolve(data.messages.personalized)
     } else {
-      // We reached our target server, but it returned an err
+      // We reached our target server, but it returned an error
       reject(error)
     }
   }
@@ -31,21 +32,11 @@ const loadNames = new Promise(function(resolve, reject) {
     if (request.status >= 200 && request.status < 400) {
       // Success!
       const data = JSON.parse(request.responseText)
-      // const randomNames = []
-      // data.results.forEach(element => {
-      //   randomNames.push(element.name.first)
-      // })
-      const users = data.results.map(user => ({
-        name: user.name.first,
-        lastName: user.name.last,
-        title: user.name.title,
-        email: user.email,
-        cellphone: user.cell,
-        gender: user.gender,
-        picture: user.picture,
-        location: user.location
-      }))
-      resolve(users)
+      const randomNames = []
+      data.results.forEach(element => {
+        randomNames.push(element.name.first)
+      })
+      resolve(randomNames)
     } else {
       // We reached our target server, but it returned an error
       reject(error)
@@ -88,10 +79,7 @@ function createTable(values) {
     // the end of the table row
     const cell = document.createElement('td')
     const cellText = document.createTextNode(
-      names[i].name.charAt(0).toUpperCase() +
-        names[i].name.slice(1) +
-        ' ' +
-        insults[i]
+      names[i].charAt(0).toUpperCase() + names[i].slice(1) + ' ' + insults[i]
     )
     cell.appendChild(cellText)
     row.appendChild(cell)
@@ -107,3 +95,5 @@ function createTable(values) {
   // sets the border attribute of tbl to 2;
   tbl.setAttribute('border', '2')
 }
+
+},{}]},{},[1]);
