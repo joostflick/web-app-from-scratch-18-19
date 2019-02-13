@@ -1,3 +1,23 @@
+function shuffle(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  }
+
+  return array
+}
+
 //promises example by Joost Faber https://codepen.io/joostf/pen/OQxpxx
 const loadInsults = new Promise(function(resolve, reject) {
   const request = new XMLHttpRequest()
@@ -62,7 +82,7 @@ const loadNames = new Promise(function(resolve, reject) {
 })
 
 Promise.all([loadNames, loadInsults]).then(function(values) {
-  routie('insultList', () => {
+  routie('insultlist', () => {
     drawDom(values)
   })
   routie(':id', id => {
@@ -72,13 +92,13 @@ Promise.all([loadNames, loadInsults]).then(function(values) {
 
 function drawDetailPage(user) {
   const element = document.getElementById('list')
-  console.log(user)
   element.innerHTML = `<div class="user">
+   <a href="#insultlist">Back to list</a>
         <img src=${user.picture.large}></img>
       <p>${user.name} ${user.lastName}</p>
       <p>${user.insult}</p>
       <p>${user.cellphone}</p>
-      <a href="mailto:${user.email}?subject=${user.name}+${user.insult}">${
+      <a href="mailto:${user.email}?subject=${user.name} ${user.insult}">${
     user.email
   }</p>
       </div>
@@ -88,7 +108,7 @@ function drawDetailPage(user) {
 function drawDom(data) {
   const element = document.getElementById('list')
   const names = data[0]
-  const insults = data[1]
+  const insults = shuffle(data[1])
   for (let i = 0; i < insults.length; i++) {
     names[i].insult = insults[i]
     names[i].id = i
@@ -107,4 +127,4 @@ function drawDom(data) {
     .join('')}`
 }
 
-routie('insultList')
+routie('insultlist')
