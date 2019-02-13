@@ -73,11 +73,14 @@ Promise.all([loadNames, loadInsults]).then(function(values) {
 function drawDetailPage(user) {
   const element = document.getElementById('list')
   console.log(user)
-  element.innerHTML = `<div class="name${user.name}">
+  element.innerHTML = `<div class="user">
         <img src=${user.picture.large}></img>
       <p>${user.name} ${user.lastName}</p>
+      <p>${user.insult}</p>
       <p>${user.cellphone}</p>
-      <a href="mailto:${user.email}">${user.email}</p>
+      <a href="mailto:${user.email}?subject=${user.name}+${user.insult}">${
+    user.email
+  }</p>
       </div>
       `
 }
@@ -93,7 +96,7 @@ function drawDom(data) {
   element.innerHTML = `${names
     .map(item =>
       `
-  <div class="name${item.name}">
+  <div class="name">
   <p>${item.name} ${item.insult}</p>
   <a href="#${item.id}">
   Check out how to contact this user

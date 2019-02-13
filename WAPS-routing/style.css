@@ -13,6 +13,19 @@ a {
   text-align: center;
   color: white;
 }
+.name {
+  border: 2px solid purple;
+}
+.user {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#list div {
+  text-align: center;
+}
 
 body {
   font-family: sans-serif;
@@ -25,8 +38,6 @@ body {
 }
 
 img {
-  max-width: 50%;
-  max-height: 60%;
   border-radius: 8px;
   box-shadow: 0 0 10px white;
 }
