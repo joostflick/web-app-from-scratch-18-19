@@ -1,5 +1,6 @@
+// the Fisher-Yates (aka Knuth) Shuffle https://github.com/Daplie/knuth-shuffle
 function shuffle(array) {
-  var currentIndex = array.length,
+  let currentIndex = array.length,
     temporaryValue,
     randomIndex
 
@@ -89,6 +90,7 @@ Promise.all([loadNames, loadInsults]).then(function(values) {
     drawDetailPage(values[0][id])
   })
 })
+
 //Martijn was a huge inspiration for me here
 function drawDetailPage(user) {
   const element = document.getElementById('list')
@@ -97,13 +99,16 @@ function drawDetailPage(user) {
         <img class="profilepic" src=${user.picture.large}></img>
       <p>${user.name} ${user.lastName}</p>
       <p>${user.insult}</p>
-      <p>Phone number: ${user.cellphone}</p>
+      <p>Phone number: <a href="tel:${user.cellphone}"> ${
+    user.cellphone
+  }</a></p>
       <p>Directly insult this user via email: </p>
       <a href="mailto:${user.email}?subject=${user.name} ${user.insult}">${
     user.email
   }</a>
       </div>
       `
+  console.log(user.location.coordinates)
   drawMap(user.location.coordinates)
 }
 
@@ -111,6 +116,7 @@ function drawMap(location) {
   console.log(location)
   map = document.getElementById('list')
   map.innerHTML += `
+  <p>Find this person to tell him/her in person: </p>
 <div class="map" id="map"></div>
 `
   initMap(location)
