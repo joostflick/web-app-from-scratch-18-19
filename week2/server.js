@@ -21,6 +21,18 @@ helpers = {
   }
 }
 
+router = {
+  initRoutes: function() {
+    routie('insultlist', () => {
+      api.getAll().then(data => render.drawList(data))
+    })
+    routie(':id', id => {
+      api.getDetails(id).then(data => render.drawDetail(data[id]))
+    })
+    routie('insultlist')
+  }
+}
+
 api = {
   getAll: function() {
     return Promise.all([this.loadNames, this.loadInsults])
@@ -88,18 +100,6 @@ api = {
 
     request.send()
   })
-}
-
-router = {
-  initRoutes: function() {
-    routie('insultlist', () => {
-      api.getAll().then(data => render.drawList(data))
-    })
-    routie(':id', id => {
-      api.getDetails(id).then(data => render.drawDetail(data[id]))
-    })
-    routie('insultlist')
-  }
 }
 
 render = {
