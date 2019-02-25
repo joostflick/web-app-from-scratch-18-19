@@ -1,4 +1,4 @@
-Helpers = {
+helpers = {
   // the Fisher-Yates (aka Knuth) Shuffle https://github.com/Daplie/knuth-shuffle
   shuffle: function(array) {
     let currentIndex = array.length,
@@ -21,7 +21,17 @@ Helpers = {
   }
 }
 
-API = {
+api = {
+  getAll: function() {
+    Promise.all([this.loadNames, this.loadInsults]).then(function(values) {
+      render.drawList(values)
+    })
+  },
+  getDetails: function(id) {
+    Promise.all([this.loadNames, this.loadInsults]).then(function(values) {
+      render.drawDetail(values[0][id])
+    })
+  },
   loadInsults: new Promise(function(resolve, reject) {
     const request = new XMLHttpRequest()
     const link = 'https://api.whatdoestrumpthink.com/api/v1/quotes'
@@ -84,16 +94,19 @@ API = {
   })
 }
 
-Promise.all([API.loadNames, API.loadInsults]).then(function(values) {
-  routie('insultlist', () => {
-    Render.drawList(values)
-  })
-  routie(':id', id => {
-    Render.drawDetail(values[0][id])
-  })
-})
+router = {
+  initRoutes: function() {
+    routie('insultlist', () => {
+      api.getAll()
+    })
+    routie(':id', id => {
+      api.getDetails(id)
+    })
+    routie('insultlist')
+  }
+}
 
-Render = {
+render = {
   drawDetail: function(user) {
     const element = document.getElementById('list')
     element.innerHTML = `<div class="user">
@@ -110,13 +123,12 @@ Render = {
     }</a>
       </div>
       `
-    console.log(user.location.coordinates)
     this.drawMap(user.location.coordinates)
   },
   drawList: function(data) {
     const element = document.getElementById('list')
     const names = data[0]
-    const insults = Helpers.shuffle(data[1])
+    const insults = helpers.shuffle(data[1])
     for (let i = 0; i < insults.length; i++) {
       names[i].insult = insults[i]
       names[i].id = i
@@ -137,7 +149,6 @@ Render = {
     .join('')}`
   },
   drawMap: function(location) {
-    console.log(location)
     map = document.getElementById('list')
     map.innerHTML += `
   <p>Find this person to tell him/her in person: </p>
@@ -147,4 +158,4 @@ Render = {
   }
 }
 
-routie('insultlist')
+router.initRoutes()
