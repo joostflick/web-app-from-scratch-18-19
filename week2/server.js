@@ -92,6 +92,8 @@ Promise.all([loadNames, loadInsults]).then(function(values) {
 })
 
 //Martijn was a huge inspiration for me here
+
+// no innerhtml
 function drawDetailPage(user) {
   const element = document.getElementById('list')
   element.innerHTML = `<div class="user">
