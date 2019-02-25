@@ -23,14 +23,10 @@ helpers = {
 
 api = {
   getAll: function() {
-    Promise.all([this.loadNames, this.loadInsults]).then(function(values) {
-      render.drawList(values)
-    })
+    return Promise.all([this.loadNames, this.loadInsults])
   },
-  getDetails: function(id) {
-    this.loadNames.then(function(values) {
-      render.drawDetail(values[id])
-    })
+  getDetails: function() {
+    return this.loadNames
   },
   loadInsults: new Promise(function(resolve, reject) {
     const request = new XMLHttpRequest()
@@ -97,10 +93,10 @@ api = {
 router = {
   initRoutes: function() {
     routie('insultlist', () => {
-      api.getAll()
+      api.getAll().then(data => render.drawList(data))
     })
     routie(':id', id => {
-      api.getDetails(id)
+      api.getDetails(id).then(data => render.drawDetail(data[id]))
     })
     routie('insultlist')
   }
@@ -108,21 +104,27 @@ router = {
 
 render = {
   drawDetail: function(user) {
-    const element = document.getElementById('list')
-    element.innerHTML = `<div class="user">
-   <a href="#insultlist">Back to list</a>
-        <img class="profilepic" src=${user.picture.large}></img>
-      <p>${user.name} ${user.lastName}</p>
-      <p>${user.insult}</p>
-      <p>Phone number: <a href="tel:${user.cellphone}"> ${
+    const list = document.getElementById('list')
+    // while (list.firstChild && list.removeChild(list.firstChild))
+    //   var user = document.createElement('div')
+    // var node = document.createTextNode('This is a new paragraph.')
+    // user.appendChild(node)
+    // list.appendChild(user)
+
+    list.innerHTML = `<div class="user">
+     <a href="#insultlist">Back to list</a>
+          <img class="profilepic" src=${user.picture.large}></img>
+        <p>${user.name} ${user.lastName}</p>
+        <p>${user.insult}</p>
+        <p>Phone number: <a href="tel:${user.cellphone}"> ${
       user.cellphone
     }</a></p>
-      <p>Directly insult this user via email: </p>
-      <a href="mailto:${user.email}?subject=${user.name} ${user.insult}">${
+        <p>Directly insult this user via email: </p>
+        <a href="mailto:${user.email}?subject=${user.name} ${user.insult}">${
       user.email
     }</a>
-      </div>
-      `
+        </div>
+        `
     this.drawMap(user.location.coordinates)
   },
   drawList: function(data) {
