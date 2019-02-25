@@ -28,8 +28,8 @@ api = {
     })
   },
   getDetails: function(id) {
-    Promise.all([this.loadNames, this.loadInsults]).then(function(values) {
-      render.drawDetail(values[0][id])
+    this.loadNames.then(function(values) {
+      render.drawDetail(values[id])
     })
   },
   loadInsults: new Promise(function(resolve, reject) {
