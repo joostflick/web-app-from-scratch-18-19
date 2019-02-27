@@ -105,13 +105,8 @@ api = {
 render = {
   drawDetail: function(user) {
     const list = document.getElementById('list')
-    // while (list.firstChild && list.removeChild(list.firstChild))
-    //   var user = document.createElement('div')
-    // var node = document.createTextNode('This is a new paragraph.')
-    // user.appendChild(node)
-    // list.appendChild(user)
 
-    list.innerHTML = `<div class="user">
+    template = `<div class="user">
      <a href="#insultlist">Back to list</a>
           <img class="profilepic" src=${user.picture.large}></img>
         <p>${user.name} ${user.lastName}</p>
@@ -125,6 +120,9 @@ render = {
     }</a>
         </div>
         `
+    // https://gomakethings.com/a-safer-alternative-to-innerhtml-with-vanilla-js/
+    // Prevent cross site scripting by sanitizing the HTML
+    saferInnerHTML(list, template)
     this.drawMap(user.location.coordinates)
   },
   drawList: function(data) {
@@ -135,7 +133,7 @@ render = {
       names[i].insult = insults[i]
       names[i].id = i
     }
-    element.innerHTML = `
+    template = `
   <a href="./index.html">Give me some other insults!</a>
   ${names
     .map(item =>
@@ -149,6 +147,7 @@ render = {
   `.trim()
     )
     .join('')}`
+    saferInnerHTML(element, template)
   },
   drawMap: function(location) {
     map = document.getElementById('list')
