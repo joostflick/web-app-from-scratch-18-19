@@ -52,3 +52,20 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px white;
 }
+
+#loader {
+  position: relative;
+  font-family: sans-serif;
+  font-size: 2em;
+  animation: animate 0.5s linear infinite;
+  -webkit-text-fill-color: white;
+}
+
+@keyframes animate {
+  0% {
+    padding-left: -100px;
+  }
+  100% {
+    padding-left: 100px;
+  }
+}
