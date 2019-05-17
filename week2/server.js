@@ -25,22 +25,26 @@
   const router = {
     initRoutes: () => {
       routie('insultlist', () => {
+        render.load()
         api.getAll().then(data => render.drawList(data))
       })
       routie(':id', id => {
-        api.getDetails(id).then(data => render.drawDetail(data[id]))
+        api.getDetails().then(data => render.drawDetail(data[id]))
       })
       routie('insultlist')
     }
   }
 
   const api = {
+    // Get both the names and the insults
     getAll: () => {
       return Promise.all([api.loadNames, api.loadInsults])
     },
+    // Get the names
     getDetails: () => {
       return api.loadNames
     },
+    // Get the insults
     loadInsults: new Promise(function(resolve, reject) {
       const request = new XMLHttpRequest()
       const link = 'https://api.whatdoestrumpthink.com/api/v1/quotes'
@@ -63,6 +67,7 @@
 
       request.send()
     }),
+    // Get the names
     loadNames: new Promise(function(resolve, reject) {
       const request = new XMLHttpRequest()
       const linkNames = 'https://randomuser.me/api/?results=573'
@@ -72,10 +77,6 @@
         if (request.status >= 200 && request.status < 400) {
           // Success!
           const data = JSON.parse(request.responseText)
-          // const randomNames = []
-          // data.results.forEach(element => {
-          //   randomNames.push(element.name.first)
-          // })
           const users = data.results.map(user => ({
             name:
               user.name.first.charAt(0).toUpperCase() +
@@ -105,6 +106,12 @@
   }
 
   const render = {
+    // Loader
+    load: function() {
+      const list = document.getElementById('list')
+      list.innerHTML = `<div class="loader"><p id="loader">Loading...</p></div>`
+    },
+    // Draw detail page
     drawDetail: user => {
       const list = document.getElementById('list')
 
