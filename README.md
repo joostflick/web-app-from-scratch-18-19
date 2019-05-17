@@ -30,3 +30,9 @@ Below you will see the main interaction flows of the app, on load and when click
 I used the following javascript to sanitize my innerhtml input to prevent Cross Site Scripting:
 
 https://gomakethings.com/a-safer-alternative-to-innerhtml-with-vanilla-js/
+
+## changed for resit:
+
+- Added usage of Array.prototype.map
+- Added loader
+- Actor & interaction diagram updated
